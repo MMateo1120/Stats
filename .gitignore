@@ -1,3 +1,4 @@
 /tutorial_env
 __pycache__/
-.vscode/
+.vscode
+.pytest_cache
