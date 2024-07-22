@@ -1,5 +1,5 @@
 from scipy.stats import ttest_1samp
-from parametric.t_test import one_sample
+from Stats.parametric.t_test import one_sample
 from scipy.stats import norm
 from scipy.stats import t
 from scipy.stats import shapiro

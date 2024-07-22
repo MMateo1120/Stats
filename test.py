@@ -1,4 +1,4 @@
-from parametric.t_test import one_sample as os
+from Stats.parametric.t_test import one_sample as os
 import importlib
 importlib.reload(os)
 import random
