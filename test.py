@@ -20,10 +20,7 @@ asd.test()
 asd.residual_plot()
 asd.plot()
 
-import os
-os.getcwd()
 
-os.chdir('C:\\Users\\Mihalovits\\Projects\\Stats')
 
 
 
