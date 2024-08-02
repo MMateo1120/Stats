@@ -20,6 +20,7 @@ import statsmodels.graphics.gofplots as sm
 import sys
 
 
+
 class _CommonMethods:
     """Base (non-callable) class consisting of the shared methods and parameters of the t-tests' classes."""
 
@@ -68,7 +69,7 @@ class _CommonMethods:
             z = plt.plot(x, p, color="red", linewidth=2)
             plt.show()
 
-    def normality(self) -> float:
+    def normality(self) -> dict:
         """Perform Shapiro Wilk test to check normality of the `residuals`.
         Automatic message generated in `.test()` if p-value < 0.05.
 
@@ -76,13 +77,14 @@ class _CommonMethods:
 
         Returns
         -------
-        float
-            The p-value of the Shapiro Wilk normality test.
+        dict
+            The p-value of the Shapiro Wilk normality test. 
+            Callable using `.normality()['p-value']`
         """
         if not isinstance(self.residuals, pd.DataFrame):
             return "Call .test() first to create residuals."
         else:
-            return {"p-value": shapiro(self.residuals)[1].item()}
+            return {"p-value": shapiro(self.residuals)[1]}
 
     def __init_warnings(self):
         """Raises warnings during initialization of the object, if arguments are not valid.
