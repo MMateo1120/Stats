@@ -1,7 +1,30 @@
-Colibripy package is ...
+.. image:: https://github.com/MMateo1120/colibripy/blob/main/colibri_pic.svg
+  :width: 150
+  :height: 150 
+  :align: left
+
+| **Colibripy** is a python package for data evaluation using statistical tools. For now, the following methods are available:
+| **one-sample t-test**
+| **two-sample t-test**
+| **paired t-test**
+|
+|
+
+
 
 Installation
 ------------
+
+
+User installation
+~~~~~~~~~~~~~~~~~
+
+To install colibripy and update dependencies use ``pip``::
+
+    pip install -U colibripy
+
+colibripy 0.1.1 requires Python 3.12 or newer.
+
 
 Dependencies
 ~~~~~~~~~~~~
@@ -18,20 +41,7 @@ colibripy requires:
 - statsmodels >= 0.14.2
 - tabulate >= 0.9.0
 
-
 =======
-
-colibripy 0.1.1 requires Python 3.12 or newer.
-
-
-User installation
-~~~~~~~~~~~~~~~~~
-
-To install colibripy and update dependencies use ``pip``::
-
-    pip install -U colibripy
-
-
 
 Important links
 ~~~~~~~~~~~~~~~
@@ -39,4 +49,3 @@ Important links
 - Official source code repo: https://github.com/MMateo1120/colibripy
 - Download releases: https://pypi.org/project/colibripy
 - Issue tracker: https://github.com/MMateo1120/colibripy/issues
-
