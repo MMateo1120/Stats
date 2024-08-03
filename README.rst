@@ -3,6 +3,7 @@
   :height: 150 
   :align: left
 
+|
 | **Colibripy** is a python package for data evaluation using statistical tools. For now, the following methods are available:
 | **one-sample t-test**
 | **two-sample t-test**
@@ -33,7 +34,7 @@ To install colibripy and update dependencies use ``pip``::
 
     pip install -U colibripy
 
-colibripy 1.0.1 requires Python 3.12 or newer.
+colibripy 1.0.2 requires Python 3.12 or newer.
 
 
 Dependencies
