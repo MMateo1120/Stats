@@ -11,6 +11,13 @@
 |
 
 
+Examples
+------------
+all : https://github.com/MMateo1120/colibripy_examples
+one-sample t-test : https://github.com/MMateo1120/colibripy_examples/blob/main/t_test_one_sample.ipynb
+two-sample t-test : https://github.com/MMateo1120/colibripy_examples/blob/main/t_test_two_sample.ipynb
+paired t-test : https://github.com/MMateo1120/colibripy_examples/blob/main/t_test_paired.ipynb 
+
 
 Installation
 ------------
@@ -44,7 +51,7 @@ colibripy requires:
 =======
 
 Important links
-~~~~~~~~~~~~~~~
+------------
 
 - Official source code repo: https://github.com/MMateo1120/colibripy
 - Download releases: https://pypi.org/project/colibripy
