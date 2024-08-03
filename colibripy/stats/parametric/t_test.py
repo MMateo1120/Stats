@@ -11,15 +11,13 @@ from scipy.stats import shapiro
 from tabulate import tabulate
 from typing import Literal
 
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import statsmodels.graphics.gofplots as sm
-import sys
 
-
+__version__ = "0.1.1"
 
 class _CommonMethods:
     """Base (non-callable) class consisting of the shared methods and parameters of the t-tests' classes."""
@@ -78,7 +76,7 @@ class _CommonMethods:
         Returns
         -------
         dict
-            The p-value of the Shapiro Wilk normality test. 
+            The p-value of the Shapiro Wilk normality test.
             Callable using `.normality()['p-value']`
         """
         if not isinstance(self.residuals, pd.DataFrame):
@@ -102,7 +100,7 @@ class _CommonMethods:
         TypeError
             TypeError if 'reference' argument is not a 'float'.
         """
-      
+
         if not isinstance(self.type, str) or self.type not in [
             "one-sided",
             "two-sided",
@@ -270,13 +268,13 @@ class OneSample(_CommonMethods):
             the nullhypothesis is on the verge of acceptance (p-value = `alpha`) when
             `sample_1` is unchanged.
         """
-        
+
         # calculate statistics like mean, std, etc. needed for the test:
         self.__stats()
-        
+
         # check for input errors, like missing '<' or '>' in the case of 'one-sided' test:
         self._CommonMethods__test_warnings(sample_vs_reference)
-        
+
         # initiate the dictionary containing some statistics that will be returned:
         results_dict = {
             "mean": [self.__mean],
@@ -469,13 +467,13 @@ class UnpairedSamples(_CommonMethods):
             the nullhypothesis is on the verge of acceptance (p-value = `alpha`) when
             `sample_1` is unchanged.
         """
-        
+
         # calculate statistics like mean, std, etc. needed for the test:
         self.__stats()
-        
+
         # check for input errors, like missing '<' or '>' in the case of 'one-sided' test:
         self._CommonMethods__test_warnings(sample1_vs_sample2)
-        
+
         # initiate the dictionary containing some statistics that will be returned:
         self.results_dict = {
             "mean1": [self.__mean1.item()],
@@ -642,7 +640,7 @@ class PairedSamples(OneSample):
             returned. It gives the value that if added to the mean of `sample_2`,
             the nullhypothesis is on the verge of acceptance (p-value = `alpha`).
         """
-        
+
         self.__onesample.test(sample1_vs_sample2)
         self.residuals = self.__onesample.residuals
 
@@ -654,4 +652,3 @@ class PairedSamples(OneSample):
         """Displays the boxplot of the differences between the corresponding values
         from `sample_1` and `sample_2`."""
         self.__onesample.plot()
-

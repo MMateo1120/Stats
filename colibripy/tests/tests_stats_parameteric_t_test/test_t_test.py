@@ -1,17 +1,8 @@
-from Stats.parametric import t_test as tt
-import importlib
-
-importlib.reload(tt)
-from scipy.stats import norm
+from colibripy.stats.parametric import t_test as tt
 from scipy import stats
-from scipy.stats import shapiro
-from tabulate import tabulate
-
 import numpy as np
 import pandas as pd
-
-# pytest Stats\parametric\tests\test_t_test.py
-
+import pytest
 
 def test_OneSample():
     # checking validity using scipy.stats.ttest_1samp module

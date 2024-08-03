@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "colibripy"
+version = "0.1.1"
+description = "The package contains statsitical tests such as one-sample, two-sample and paired t-test. Residual analysis and plotting are also supported."
+authors = ["MMateo1120 <mmateo1120@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/MMateo1120/colibripy"
+classifiers=[
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12"
+  ]
+keywords = ["statistics", "parametric tests", "t-test", "one-sample t-test", "two-sample t-test", "paired t-test"]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+matplotlib = "3.9.1"
+numpy = "2.0.1"
+pandas = "2.2.2"
+pytest = "8.3.2"
+scikit-learn = "1.5.1"
+scipy = "1.14.0"
+seaborn = "0.13.2"
+statsmodels = "0.14.2"
+tabulate = "0.9.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.2"
+scipy = "^1.14.0"
+numpy = "^2.0.1"
+pandas = "^2.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
