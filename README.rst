@@ -21,7 +21,7 @@ colibripy requires:
 
 =======
 
-colibripy 0.1.1 require Python 3.12 or newer.
+colibripy 0.1.1 requires Python 3.12 or newer.
 
 
 User installation
@@ -29,7 +29,7 @@ User installation
 
 To install colibripy and update dependencies use ``pip``::
 
-    pip install -U scikit-learn
+    pip install -U colibripy
 
 
 
