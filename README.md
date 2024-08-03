@@ -1,2 +1,2 @@
 Not finished
-image:: file:///E:/Downloads/1722681617152wq41jrsh.webp
+image:: https://drive.google.com/file/d/1xIpGr0zsNFEeMRH_mVkQsqvSJGZSc_m9/view?usp=sharing
