@@ -17,7 +17,7 @@ import pandas as pd
 import seaborn as sns
 import statsmodels.graphics.gofplots as sm
 
-__version__ = "0.1.1"
+__version__ = "1.0.0"
 
 class _CommonMethods:
     """Base (non-callable) class consisting of the shared methods and parameters of the t-tests' classes."""
