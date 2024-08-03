@@ -1,4 +1,4 @@
-.. image:: https://github.com/MMateo1120/colibripy/blob/main/colibri_pic.svg
+.. image:: https://raw.githubusercontent.com/MMateo1120/colibripy/93ca2b60b5f3fc9c0fb50e1552930e253703b66c/colibri_pic.svg
   :width: 150
   :height: 150 
   :align: left
@@ -33,7 +33,7 @@ To install colibripy and update dependencies use ``pip``::
 
     pip install -U colibripy
 
-colibripy 0.1.1 requires Python 3.12 or newer.
+colibripy 1.0.1 requires Python 3.12 or newer.
 
 
 Dependencies
@@ -54,7 +54,7 @@ colibripy requires:
 =======
 
 Important links
-------------
+---------------
 
 - Official source code repo: https://github.com/MMateo1120/colibripy
 - Download releases: https://pypi.org/project/colibripy
