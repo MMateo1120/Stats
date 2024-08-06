@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/MMateo1120/colibripy/93ca2b60b5f3fc9c0fb50e1552930e253703b66c/colibri_pic.svg
+.. image:: https://raw.githubusercontent.com/MMateo1120/colibripy/89b4489a8324c3b267e2c63de81654c4017636ea/colibri_pic.svg
   :width: 150
   :height: 150 
   :align: left
