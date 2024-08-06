@@ -58,7 +58,13 @@ class _CommonMethods:
             fig.tight_layout(pad=3.0)
             fig.suptitle("Residual plots")
             sm.ProbPlot(self.residuals.iloc[:, 0]).qqplot(line="s", ax=ax1)
-            sns.histplot(self.residuals, stat="density", legend=False, ax=ax2, x='residuals'),
+            sns.histplot(
+                self.residuals,
+                stat="density",
+                legend=False,
+                ax=ax2,
+                x="residuals",
+            ),
             x = np.linspace(
                 -4 * self.residuals.std(), 4 * self.residuals.std(), 200
             )
@@ -158,7 +164,7 @@ class _CommonMethods:
 
         if self.normality()["p-value"] < 0.05:
             message = (
-                f"The p-value of the Shapiro-Wilk normality test of the residuals is {self.normality()['p-value']}."
+                f"The p-value of the Shapiro-Wilk normality test of the residuals is {self.normality()['p-value']}.\n"
                 + f" Normality of the residuals is not fulfilled, nonparametric test may be preferred."
             )
             print(
@@ -218,7 +224,9 @@ class OneSample(_CommonMethods):
         """
         self.__mean = self.sample_1.mean().item()
         self.__ste = self.sample_1.std().item() / (len(self.sample_1) ** 0.5)
-        self.residuals = (self.sample_1 - self.__mean).rename(columns={0: "residuals"})
+        self.residuals = (self.sample_1 - self.__mean).rename(
+            columns={0: "residuals"}
+        )
         self.__test_statistic = (self.__mean - self.reference) / self.__ste
         self.__df = len(self.sample_1) - 1
         self.__inverse_t = t.cdf(self.__test_statistic, self.__df)
@@ -317,9 +325,15 @@ class OneSample(_CommonMethods):
 
         return pd.DataFrame(results_dict)
 
-    def plot(self) -> None:
-        """Displays the boxplot of `sample_1`'s data. The red line represents the `reference`"""
-        self.sample_1 = self.sample_1.rename(columns={0: "sample_1"})
+    def plot(self, x: str = "sample_1") -> None:
+        """Displays the boxplot of `sample_1`'s data. The red line represents the `reference`
+
+        Parameters
+        ----------
+        x : str, optional
+            The x-axis label of the boxplot, by default "sample_1".
+        """
+        self.sample_1 = self.sample_1.rename(columns={0: x})
         sns.boxplot(self.sample_1, widths=[0.4])
         plt.axhline(y=self.reference, color="r", linestyle="-")
         plt.show()
@@ -384,7 +398,7 @@ class UnpairedSamples(_CommonMethods):
                 self.sample_2 - self.sample_2.mean(),
             ],
             keys=["res1", "res2"],
-        )
+        ).rename(columns={0: "residuals"})
 
         # calculate the test statistics with pooled standard deviation:
         if self.pooling:
@@ -527,7 +541,7 @@ class UnpairedSamples(_CommonMethods):
         return results
 
     def plot(self) -> None:
-        """Displays the boxplots of `sample_1`'s and `sample_2`'s data."""
+        """Displays the boxplot of `sample_1`'s and `sample_2`'s data."""
         self.sample_1 = self.sample_1.rename(columns={0: "value"})
         self.sample_2 = self.sample_2.rename(columns={0: "value"})
         self.sample_1 = pd.concat(
@@ -641,14 +655,13 @@ class PairedSamples(OneSample):
             the nullhypothesis is on the verge of acceptance (p-value = `alpha`).
         """
 
-        self.__onesample.test(sample1_vs_sample2)
+        result = self.__onesample.test(sample1_vs_sample2)
         self.residuals = self.__onesample.residuals
 
-        result = self.__onesample.test(sample1_vs_sample2)
         result.rename(columns={"mean": "means_diff"}, inplace=True)
         return result
 
     def plot(self):
         """Displays the boxplot of the differences between the corresponding values
         from `sample_1` and `sample_2`."""
-        self.__onesample.plot()
+        self.__onesample.plot("differences")

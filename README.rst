@@ -34,7 +34,7 @@ To install colibripy and update dependencies use ``pip``::
 
     pip install -U colibripy
 
-colibripy 1.0.2 requires Python 3.12 or newer.
+colibripy 1.0.0 requires Python 3.12 or newer.
 
 
 Dependencies
