@@ -17,7 +17,6 @@ import pandas as pd
 import seaborn as sns
 import statsmodels.graphics.gofplots as sm
 
-__version__ = "1.0.0"
 
 class _CommonMethods:
     """Base (non-callable) class consisting of the shared methods and parameters of the t-tests' classes."""
@@ -59,7 +58,7 @@ class _CommonMethods:
             fig.tight_layout(pad=3.0)
             fig.suptitle("Residual plots")
             sm.ProbPlot(self.residuals.iloc[:, 0]).qqplot(line="s", ax=ax1)
-            sns.histplot(self.residuals, stat="density", legend=False, ax=ax2),
+            sns.histplot(self.residuals, stat="density", legend=False, ax=ax2, x='residuals'),
             x = np.linspace(
                 -4 * self.residuals.std(), 4 * self.residuals.std(), 200
             )
@@ -82,7 +81,7 @@ class _CommonMethods:
         if not isinstance(self.residuals, pd.DataFrame):
             return "Call .test() first to create residuals."
         else:
-            return {"p-value": shapiro(self.residuals)[1]}
+            return {"p-value": shapiro(self.residuals)[1].item()}
 
     def __init_warnings(self):
         """Raises warnings during initialization of the object, if arguments are not valid.
@@ -219,7 +218,7 @@ class OneSample(_CommonMethods):
         """
         self.__mean = self.sample_1.mean().item()
         self.__ste = self.sample_1.std().item() / (len(self.sample_1) ** 0.5)
-        self.residuals = self.sample_1 - self.__mean
+        self.residuals = (self.sample_1 - self.__mean).rename(columns={0: "residuals"})
         self.__test_statistic = (self.__mean - self.reference) / self.__ste
         self.__df = len(self.sample_1) - 1
         self.__inverse_t = t.cdf(self.__test_statistic, self.__df)
@@ -320,7 +319,8 @@ class OneSample(_CommonMethods):
 
     def plot(self) -> None:
         """Displays the boxplot of `sample_1`'s data. The red line represents the `reference`"""
-        sns.boxplot(self.sample_1)
+        self.sample_1 = self.sample_1.rename(columns={0: "sample_1"})
+        sns.boxplot(self.sample_1, widths=[0.4])
         plt.axhline(y=self.reference, color="r", linestyle="-")
         plt.show()
 
