@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "colibripy"
-version = "1.0.8"
+version = "1.0.0"
 description = "The package contains statsitical tests such as one-sample, two-sample and paired t-test. Residual analysis and plotting are also supported."
 authors = ["MMateo1120 <mmateo1120@gmail.com>"]
 readme = "README.rst"
