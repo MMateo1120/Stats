@@ -54,9 +54,14 @@ colibripy requires:
 
 =======
 
+Author
+------
+- Mate Mihalovits, Phd - mmateo1120@gmail.com
+
 Important links
 ---------------
 
 - Official source code repo: https://github.com/MMateo1120/colibripy
 - Download releases: https://pypi.org/project/colibripy
 - Issue tracker: https://github.com/MMateo1120/colibripy/issues
+
