@@ -56,7 +56,7 @@ colibripy requires:
 
 Author
 ------
-- Mate Mihalovits, Phd - mmateo1120@gmail.com
+- Mate Mihalovits, PhD - mmateo1120@gmail.com
 
 Important links
 ---------------
